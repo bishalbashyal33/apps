@@ -4,7 +4,14 @@ document.querySelector('#app').innerHTML = `
   <div class="layout">
     <header>
       <a href="/" class="logo">Bishal💡</a>
-      <nav>
+      
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav">
         <ul>
           <li><a href="#" class="active">Apps</a></li>
           <li><a href="https://bishalb.com">About</a></li>
@@ -16,7 +23,7 @@ document.querySelector('#app').innerHTML = `
     <main>
       <section class="hero">
         <h1>Apps by BishalB</h1>
-        <p>A collection of tools and mini-apps designed to simplify your workflow.</p>
+        <p>A collection of tools, projects and mini-apps from BishalB</p>
       </section>
 
       <!-- Updated Recently Section -->
@@ -73,9 +80,9 @@ document.querySelector('#app').innerHTML = `
             <div class="app-category">Healthcare</div>
           </div>
 
-          <div class="app-item" data-app="Medical Report Summary" data-status="in-development">
+          <div class="app-item" data-app="MediReport" data-status="in-development">
             <div class="app-icon">🏥</div>
-            <div class="app-name">Medical Report Summary</div>
+            <div class="app-name">MediReport</div>
             <div class="app-category">Healthcare</div>
           </div>
 
@@ -154,3 +161,22 @@ modal.addEventListener('click', (e) => {
     modal.classList.remove('active');
   }
 });
+
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Close menu when clicking a nav link
+const navLinks = nav.querySelectorAll('a');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
