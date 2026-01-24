@@ -22,7 +22,18 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 
 header {
   padding: 1.5rem 2rem;
@@ -66,10 +77,13 @@ nav a.active {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
+  flex: 1;
+  width: 100%;
 }
+
 
 .hero {
   text-align: center;
@@ -90,11 +104,24 @@ main {
   margin: 0 auto;
 }
 
+.apps-section {
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 3rem 2rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   justify-items: center;
 }
 
@@ -106,6 +133,7 @@ main {
   gap: 0.75rem;
   transition: var(--transition);
   width: 120px;
+  cursor: pointer;
 }
 
 .app-item:hover {
@@ -132,6 +160,17 @@ main {
   border-color: var(--accent-color);
 }
 
+.app-icon-img {
+  padding: 1rem;
+}
+
+.icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
 .app-name {
   font-size: 1rem;
   font-weight: 600;
@@ -149,6 +188,121 @@ main {
   margin-top: -0.25rem;
 }
 
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transform: scale(0.8) translateY(20px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid var(--border-color);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-emoji {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.modal-text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.modal-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  padding: 6rem 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-text {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.25rem;
@@ -156,5 +310,24 @@ main {
 
   nav {
     display: none;
+  }
+
+  .apps-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2rem 1.5rem;
+  }
+
+  .app-item {
+    width: 100px;
+  }
+
+  .app-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
   }
 }
