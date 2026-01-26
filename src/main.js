@@ -30,10 +30,14 @@ document.querySelector('#app').innerHTML = `
       <section class="apps-section">
         <h2 class="section-title">Updated Recently</h2>
         <div class="apps-grid">
+          <div class="app-item" data-app="NepElect" data-status="live" data-url="https://nepelect.bishalb.com">
+            <div class="app-icon">🗳️</div>
+            <div class="app-name">NepElect</div>
+            <div class="app-category">Politics</div>
+          </div>
+
           <div class="app-item" data-app="PomoDoro" data-status="live" data-url="https://pomodoro.bishalb.com">
-            <div class="app-icon app-icon-img">
-              <img src="https://raw.githubusercontent.com/bishalbashyal33/pomodoro/7d8857d48938cc135b6c9888678d8f594ff0d025/public/p-logo.svg" alt="PomoDoro" class="icon-img">
-            </div>
+            <div class="app-icon">🍅</div>
             <div class="app-name">PomoDoro</div>
             <div class="app-category">Productivity</div>
           </div>
