@@ -30,6 +30,13 @@ document.querySelector('#app').innerHTML = `
       <section class="apps-section">
         <h2 class="section-title">Updated Recently</h2>
         <div class="apps-grid">
+          <!-- Newly Added Live App -->
+          <div class="app-item" data-app="ClaimAudit" data-status="live" data-url="https://claimsaudit.bishalb.com">
+            <div class="app-icon">🏥</div>
+            <div class="app-name">ClaimAudit</div>
+            <div class="app-category">Healthcare</div>
+          </div>
+
           <div class="app-item" data-app="NepElect" data-status="live" data-url="https://nepelect.bishalb.com">
             <div class="app-icon">🗳️</div>
             <div class="app-name">NepElect</div>
@@ -78,18 +85,6 @@ document.querySelector('#app').innerHTML = `
       <section class="apps-section">
         <h2 class="section-title">Apps in Development</h2>
         <div class="apps-grid">
-          <div class="app-item" data-app="Claims Auditor" data-status="in-development">
-            <div class="app-icon">🔍</div>
-            <div class="app-name">Claims Auditor</div>
-            <div class="app-category">Healthcare</div>
-          </div>
-
-          <div class="app-item" data-app="MediReport" data-status="in-development">
-            <div class="app-icon">🏥</div>
-            <div class="app-name">MediReport</div>
-            <div class="app-category">Healthcare</div>
-          </div>
-
           <div class="app-item" data-app="AI Shorts Generator" data-status="in-development">
             <div class="app-icon">🎬</div>
             <div class="app-name">AI Shorts Generator</div>
